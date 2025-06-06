@@ -10,10 +10,22 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/styles.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .logo-placeholder img {
+      animation: spin 5s linear infinite;
+    }
+  </style>
 </head>
 <body>
   <nav>
     <a href="#">Home</a>
+    <a href="#growth-metrics">Growth Metrics</a>
+    <a href="#why">Why DJT4700</a>
     <a href="#global">Global Reach</a>
     <a href="#dex-info">Live Chart</a>
   </nav>
@@ -24,17 +36,15 @@
     </div>
 
     <div class="header-text">
-      <h1>DJT4700: The Community-Driven Crypto with Trump Whale Power 🌐🚀</h1>
-      <p>In the ever-evolving world of cryptocurrency, DJT4700 is turning heads. A community-driven project that recently got taken over by a Trump-affiliated “whale” investor, DJT4700 has set itself apart as a unique fusion of narratives, political alignment, and powerful growth metrics.</p>
+      <h1>DJT4700 — The Meme Coin Taking Crypto by Storm</h1>
+      <p>Community-fueled. Trump-whale-backed. Ready to moon. 🚀</p>
       <button class="cta-button" id="copy-btn" data-tooltip="Copied!">Buy $DJT4700</button>
-      <div style="margin-top: 1rem; font-size: 0.9rem; text-align: center;">
-        <strong>Contract:</strong>
-        <span id="contract-address">0x470005727a680b19EfBaEb9fe070F844Bf8B0694</span>
-        <button onclick="copyContract()" style="margin-left: 0.5rem;">📋 Copy</button>
-        <span id="copy-status" style="margin-left: 0.5rem; color: #00ff99; display: none;">Copied!</span>
+      <div style="margin-top: 1rem; font-family: monospace; font-size: 0.9rem;">
+        <strong>Contract:</strong> 0x470005727a680b19EfBaEb9fe070F844Bf8B0694 <button class="copy-button" onclick="copyAddress()">📋 Copy</button>
       </div>
     </div>
 
+    <!-- Responsive full-screen image container -->
     <div class="hero-image" style="
       position: relative;
       width: 100%;
@@ -55,11 +65,13 @@
           height: auto;
           width: auto;
           object-fit: contain;
+          opacity: 0.35;
         "
       />
     </div>
   </header>
 
+  <!-- Full-width video section -->
   <section class="video-section" style="width: 100%; padding: 0; margin: 0;">
     <video autoplay loop muted playsinline style="width: 100%; height: auto; display: block;">
       <source src="vid/promo.mp4" type="video/mp4" />
@@ -74,7 +86,6 @@
 
   <section class="section" id="global">
     <h2 style="text-align:center; font-size:2rem;">Global Reach 🌍</h2>
-    <p style="text-align:center; max-width:600px; margin: 1rem auto;">Targeted Chinese marketing + booming global interest. DJT4700 knows no borders.</p>
     <div class="buttons">
       <a href="https://t.me/DJT4700ETHOfficial" class="telegram">Join Telegram</a>
       <a href="https://x.com/djt4700official" class="twitter">Follow on X</a>
@@ -157,19 +168,15 @@
       }
     }
 
-    fetchDexData();
-    setInterval(fetchDexData, 60000);
-
-    function copyContract() {
-      const address = document.getElementById("contract-address").innerText;
+    function copyAddress() {
+      const address = "0x470005727a680b19EfBaEb9fe070F844Bf8B0694";
       navigator.clipboard.writeText(address).then(() => {
-        const status = document.getElementById("copy-status");
-        status.style.display = "inline";
-        setTimeout(() => {
-          status.style.display = "none";
-        }, 2000);
+        alert("Address copied to clipboard!");
       });
     }
+
+    fetchDexData();
+    setInterval(fetchDexData, 60000);
   </script>
 
   <script src="script/script.js"></script>
