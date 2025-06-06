@@ -14,8 +14,6 @@
 <body>
   <nav>
     <a href="#">Home</a>
-    <a href="#growth-metrics">Growth Metrics</a>
-    <a href="#why">Why DJT4700</a>
     <a href="#global">Global Reach</a>
     <a href="#dex-info">Live Chart</a>
   </nav>
@@ -26,12 +24,17 @@
     </div>
 
     <div class="header-text">
-      <h1>DJT4700 — The Meme Coin Taking Crypto by Storm</h1>
-      <p>Community-fueled. Trump-whale-backed. Ready to moon. 🚀</p>
+      <h1>DJT4700: The Community-Driven Crypto with Trump Whale Power 🌐🚀</h1>
+      <p>In the ever-evolving world of cryptocurrency, DJT4700 is turning heads. A community-driven project that recently got taken over by a Trump-affiliated “whale” investor, DJT4700 has set itself apart as a unique fusion of narratives, political alignment, and powerful growth metrics.</p>
       <button class="cta-button" id="copy-btn" data-tooltip="Copied!">Buy $DJT4700</button>
+      <div style="margin-top: 1rem; font-size: 0.9rem; text-align: center;">
+        <strong>Contract:</strong>
+        <span id="contract-address">0x470005727a680b19EfBaEb9fe070F844Bf8B0694</span>
+        <button onclick="copyContract()" style="margin-left: 0.5rem;">📋 Copy</button>
+        <span id="copy-status" style="margin-left: 0.5rem; color: #00ff99; display: none;">Copied!</span>
+      </div>
     </div>
 
-    <!-- Responsive full-screen image container -->
     <div class="hero-image" style="
       position: relative;
       width: 100%;
@@ -57,56 +60,11 @@
     </div>
   </header>
 
-  <!-- Full-width video section -->
   <section class="video-section" style="width: 100%; padding: 0; margin: 0;">
     <video autoplay loop muted playsinline style="width: 100%; height: auto; display: block;">
       <source src="vid/promo.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
-  </section>
-
-  <section class="section" id="why" style="background: url('img/banner.jpg') no-repeat center center / cover; background-color: rgba(14, 14, 26, 0.85); background-blend-mode: overlay;">
-    <h2 style="text-align:center; font-size:2rem; margin-bottom:1.5rem;">Why $DJT4700?</h2>
-    <div class="card-container">
-      <div class="card">
-        <h3>🏩️ Political Power</h3>
-        <p>MAGA-branded crypto riding Trump-fueled investor confidence.</p>
-      </div>
-      <div class="card">
-        <h3>📈 SPX Meta Boost</h3>
-        <p>Linked to the $800M SPX meta trend attracting major capital.</p>
-      </div>
-      <div class="card">
-        <h3>💲 $7B DJT Stock</h3>
-        <p>Traditional finance legitimacy meets meme coin momentum.</p>
-      </div>
-      <div class="card">
-        <h3>🦮 Unique Address</h3>
-        <p>0x470005727a680b19EfBaEb9fe070F844Bf8B0694 <button class="copy-button" onclick="copyAddress()">📋 Copy</button></p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="growth-metrics" style="background-color:#141427;">
-    <h2 style="text-align:center; font-size:2rem; margin-bottom:1.5rem;">🚀 Explosive Growth Metrics</h2>
-    <div class="grid grid-3">
-      <div class="card">
-        <div class="stats" data-target="1700">0</div>
-        <p>Holders</p>
-      </div>
-      <div class="card">
-        <div class="stats" data-target="6500000">$0</div>
-        <p>All-Time High</p>
-      </div>
-      <div class="card">
-        <div class="stats" data-target="2000">0</div>
-        <p>Telegram Members</p>
-      </div>
-      <div class="card">
-        <div class="stats" data-target="1000">0</div>
-        <p>Twitter Followers</p>
-      </div>
-    </div>
   </section>
 
   <section class="section" id="dex-info" style="background-color: #141427; text-align: center;">
@@ -201,6 +159,17 @@
 
     fetchDexData();
     setInterval(fetchDexData, 60000);
+
+    function copyContract() {
+      const address = document.getElementById("contract-address").innerText;
+      navigator.clipboard.writeText(address).then(() => {
+        const status = document.getElementById("copy-status");
+        status.style.display = "inline";
+        setTimeout(() => {
+          status.style.display = "none";
+        }, 2000);
+      });
+    }
   </script>
 
   <script src="script/script.js"></script>
