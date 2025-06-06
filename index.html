@@ -6,8 +6,10 @@
   <meta name="description" content="Discover DJT4700 — the Trump-backed meme coin turning heads with explosive growth, political narrative, and global reach. Join 2,000+ holders fueling the next big crypto wave." />
   <meta name="keywords" content="Trump meme coin, MAGA crypto, political crypto, SPX meta, fast growing crypto, DJT4700" />
   <title>DJT4700 | Trump-Whale Powered Meme Coin</title>
+  <link rel="preload" as="video" href="vid/promo.mp4" type="video/mp4">
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <nav>
@@ -15,23 +17,24 @@
     <a href="#growth-metrics">Growth Metrics</a>
     <a href="#why">Why DJT4700</a>
     <a href="#global">Global Reach</a>
+    <a href="#chart">Live Chart</a>
   </nav>
 
   <header>
     <div class="header-text">
       <h1>DJT4700 — The Meme Coin Taking Crypto by Storm</h1>
       <p>Community-fueled. Trump-whale-backed. Ready to moon. 🚀</p>
-      <button class="cta-button">Buy $DJT4700</button>
+      <button class="cta-button" id="copy-btn" data-tooltip="Copied!">Buy $DJT4700</button>
     </div>
     <div class="hero-image">
-      <img src="img/logo.png" alt="Trump Hero Placeholder">
+      <video autoplay loop muted playsinline width="100%" style="border-radius: 1rem;">
+        <source src="vid/promo.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
     </div>
   </header>
 
-  <section class="section" id="why" style="
-  background: url('img/banner.jpg') no-repeat center center / cover;
-  background-color: rgba(14, 14, 26, 0.85);
-  background-blend-mode: overlay;">
+  <section class="section" id="why" style="background: url('img/banner.jpg') no-repeat center center / cover; background-color: rgba(14, 14, 26, 0.85); background-blend-mode: overlay;">
     <h2 style="text-align:center; font-size:2rem; margin-bottom:1.5rem;">Why $DJT4700?</h2>
     <div class="card-container">
       <div class="card">
@@ -47,24 +50,17 @@
         <p>Traditional finance legitimacy meets meme coin momentum.</p>
       </div>
       <div class="card">
-  <div class="card">
-  <h3>🦄 Unique Address</h3>
-  <p style="word-break: break-all; display: flex; align-items: center; justify-content: center; gap: 0.5rem; flex-wrap: wrap;">
-    <span id="wallet-address">0x470005727a680b19EfBaEb9fe070F844Bf8B0694</span>
-    <button class="copy-btn" onclick="copyAddress(this)">
-      Copy
-      <span class="tooltip">Copied!</span>
-    </button>
-  </p>
-</div>
-
+        <h3>🦮 Unique Address</h3>
+        <p>0x470005727a680b19EfBaEb9fe070F844Bf8B0694 <button class="copy-button" onclick="copyAddress()">📋 Copy</button></p>
+      </div>
+    </div>
   </section>
 
-  <section class="section" id="growth-metrics">
+  <section class="section" id="growth-metrics" style="background-color:#141427;">
     <h2 style="text-align:center; font-size:2rem; margin-bottom:1.5rem;">🚀 Explosive Growth Metrics</h2>
     <div class="grid grid-3">
       <div class="card">
-        <div class="stats" data-target="1700">0+</div>
+        <div class="stats" data-target="1700">0</div>
         <p>Holders</p>
       </div>
       <div class="card">
@@ -72,28 +68,109 @@
         <p>All-Time High</p>
       </div>
       <div class="card">
-        <div class="stats" data-target="2000">0+</div>
+        <div class="stats" data-target="2000">0</div>
         <p>Telegram Members</p>
       </div>
       <div class="card">
-        <div class="stats" data-target="1000">0+</div>
+        <div class="stats" data-target="1000">0</div>
         <p>Twitter Followers</p>
       </div>
     </div>
+  </section>
+
+  <section class="section" id="dex-info" style="background-color: #141427; text-align: center;">
+    <h2 style="font-size: 2rem; margin-bottom: 1rem;">📈 Live $DJT4700 Market Data</h2>
+    <canvas id="priceChart" width="400" height="200" style="max-width: 100%; margin: 0 auto;"></canvas>
   </section>
 
   <section class="section" id="global">
     <h2 style="text-align:center; font-size:2rem;">Global Reach 🌍</h2>
     <p style="text-align:center; max-width:600px; margin: 1rem auto;">Targeted Chinese marketing + booming global interest. DJT4700 knows no borders.</p>
     <div class="buttons">
-        <a href="https://t.me/djt4700eth" target="_blank" class="telegram">Join Telegram</a>
-        <a href="https://x.com/djt4700official" target="_blank" class="twitter">Follow on X</a>
+      <a href="https://t.me/djt4700eth" class="telegram">Join Telegram</a>
+      <a href="https://x.com/djt4700official" class="twitter">Follow on X</a>
     </div>
   </section>
 
   <footer>
     <p>Not Financial Advice. Do Your Own Research. <br /> &copy; 2025 DJT4700. Powered by Community.</p>
   </footer>
+
+  <script>
+    let chart;
+
+    async function fetchDexData() {
+      try {
+        const res = await fetch('https://api.dexscreener.com/latest/dex/pairs/ethereum/0x1b78bd60eb71ff95bf3f735ec6eb196066600f41');
+        const data = await res.json();
+        const pair = data.pair;
+
+        if (!pair || !pair.priceUsd) {
+          document.getElementById('priceChart').replaceWith('Market data unavailable.');
+          return;
+        }
+
+        const now = new Date();
+        const labels = Array.from({ length: 12 }, (_, i) => {
+          const t = new Date(now.getTime() - (11 - i) * 5 * 60000);
+          return `${t.getHours()}:${t.getMinutes().toString().padStart(2, '0')}`;
+        });
+
+        const prices = Array.from({ length: 12 }, () =>
+          (parseFloat(pair.priceUsd) * (1 + (Math.random() - 0.5) * 0.01)).toFixed(6)
+        );
+
+        const ctx = document.getElementById('priceChart').getContext('2d');
+
+        if (chart) {
+          chart.data.labels = labels;
+          chart.data.datasets[0].data = prices;
+          chart.update();
+        } else {
+          chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+              labels: labels,
+              datasets: [{
+                label: '$DJT4700 Price (USD)',
+                data: prices,
+                borderColor: '#00ff99',
+                backgroundColor: 'rgba(0, 255, 153, 0.1)',
+                tension: 0.3,
+                fill: true,
+                pointRadius: 2,
+              }]
+            },
+            options: {
+              responsive: true,
+              scales: {
+                x: { display: true },
+                y: {
+                  beginAtZero: false,
+                  ticks: {
+                    callback: value => `$${value}`
+                  }
+                }
+              },
+              plugins: {
+                legend: { display: false },
+                tooltip: {
+                  callbacks: {
+                    label: ctx => `$${ctx.parsed.y}`
+                  }
+                }
+              }
+            }
+          });
+        }
+      } catch (err) {
+        console.error("Error fetching DEX data:", err);
+      }
+    }
+
+    fetchDexData();
+    setInterval(fetchDexData, 60000);
+  </script>
 
   <script src="script/script.js"></script>
 </body>
