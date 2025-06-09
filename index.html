@@ -9,6 +9,7 @@
   <link rel="preload" as="video" href="vid/promo2.mp4" type="video/mp4">
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     @keyframes spin {
@@ -18,6 +19,119 @@
 
     .logo-placeholder img {
       animation: spin 5s linear infinite;
+    }
+     @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .logo-placeholder img {
+      animation: spin 10s linear infinite;
+    }
+
+    .hero-image img {
+      opacity: 0.85;
+    }
+
+    .tokenomics-section {
+      background-color: #0d0d1b;
+      color: #fff;
+      padding: 2rem 1rem;
+      font-family: 'Space Grotesk', sans-serif;
+      text-align: center;
+    }
+
+    .tokenomics-section h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .tokenomics-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    .token-box {
+      background-color: #1a1a2e;
+      border-radius: 12px;
+      padding: 1.5rem;
+      flex: 1 1 300px;
+      max-width: 350px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      text-align: left;
+    }
+
+    .token-box h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .token-box ul {
+      list-style: none;
+      padding: 0;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .token-box i {
+      color: #184e96;
+      margin-right: 0.5rem;
+    }
+
+    .gif-box .gif-placeholder {
+      margin-top: 1rem;
+      background-color: #222;
+      border: 2px dashed #444;
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 200px;
+    }
+
+    .gif-box img {
+      max-width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      padding: 2rem;
+    }
+
+    .gallery img {
+      width: 150px;
+      height: auto;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: transform 0.2s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .lightbox {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.9);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 80vh;
     }
   </style>
 </head>
@@ -69,10 +183,90 @@ In the ever-evolving world of cryptocurrency, DJT4700 is turning heads. A commun
   <!-- Full-width video section -->
   <section class="video-section" style="width: 100%; padding: 0; margin: 0;">
     <video autoplay loop muted playsinline style="width: 100%; height: auto; display: block;">
+      <source src="vid/promo4.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </section>
+
+   <section class="tokenomics-section">
+    <h2><i class="fas fa-chart-pie"></i> Tokenomics Overview</h2>
+    <div class="tokenomics-grid">
+      <div class="token-box">
+        <h3><i class="fas fa-coins"></i> Token Supply</h3>
+        <ul>
+          <li><strong>Total Supply:</strong> 1,000,000,000.00 $DJT4700</li>
+          <li><strong>Circulating Supply:</strong> 970,000,000 $DJT4700</li>
+        </ul>
+      </div>
+      <div class="token-box">
+        <h3><i class="fas fa-water"></i> Liquidity Metrics</h3>
+        <ul>
+          <li><strong>Verified Liquidity:</strong> $26,012.12</li>
+          <li><strong>Liquidity % of Market Cap:</strong> 15.78%</li>
+        </ul>
+      </div>
+      <div class="token-box">
+        <h3><i class="fas fa-retweet"></i> Pooled Reserves</h3>
+        <ul>
+          <li><strong>$DJT4700:</strong> 153,059,756.92 ($25.96K)</li>
+          <li><strong>WETH:</strong> 10.22 ($25.96K)</li>
+        </ul>
+      </div>
+      <div class="token-box">
+        <h3><i class="fas fa-shield-alt"></i> Tax & Honeypot</h3>
+        <ul>
+          <li><strong>Honeypot:</strong> No</li>
+          <li><strong>Buy Tax:</strong> 0%</li>
+          <li><strong>Sell Tax:</strong> 0%</li>
+        </ul>
+      </div>
+      <div class="token-box">
+        <h3><i class="fas fa-code-branch"></i> Transparency</h3>
+        <ul>
+          <li><strong>Open Source:</strong> Yes</li>
+          <li><strong>Rugpull Risk:</strong> No</li>
+        </ul>
+      </div>
+      <div class="token-box gif-box">
+        
+        <div class="gif-placeholder">
+              <!-- Full-width video section -->
+  <section class="video-section" style="width: 100%; padding: 0; margin: 0;">
+    <video autoplay loop muted playsinline style="width: 100%; height: auto; display: block;">
+      <source src="vid/promo3.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </section>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- Full-width video section -->
+  <section class="video-section" style="width: 100%; padding: 0; margin: 0;">
+    <video autoplay loop muted playsinline style="width: 100%; height: auto; display: block;">
       <source src="vid/promo2.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
   </section>
+
+   <h2 style="text-align:center; font-size:2rem;">Meme gallery 🔥</h2>
+  <section class="gallery">
+    
+    <img src="img/meme1.jpg" alt="Meme 1" onclick="openLightbox(this.src)" />
+    <img src="img/meme2.jpg" alt="Meme 2" onclick="openLightbox(this.src)" />
+    <img src="img/meme3.jpg" alt="Meme 3" onclick="openLightbox(this.src)" />
+    <img src="img/meme4.jpg" alt="Meme 4" onclick="openLightbox(this.src)" />
+    <img src="img/meme5.jpg" alt="Meme 5" onclick="openLightbox(this.src)" />
+    <img src="img/meme6.jpg" alt="Meme 6" onclick="openLightbox(this.src)" />
+    <img src="img/meme7.jpg" alt="Meme 7" onclick="openLightbox(this.src)" />
+    <img src="img/meme8.jpg" alt="Meme 8" onclick="openLightbox(this.src)" />
+    <img src="img/djt.jpg" alt="Meme 9" onclick="openLightbox(this.src)" />
+  </section>
+
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="Expanded meme" />
+  </div>
 
   <section class="section" id="dex-info" style="background-color: #141427; text-align: center;">
     <h2 style="font-size: 2rem; margin-bottom: 1rem;">📈 Live $DJT4700 Market Data</h2>
@@ -172,6 +366,15 @@ In the ever-evolving world of cryptocurrency, DJT4700 is turning heads. A commun
 
     fetchDexData();
     setInterval(fetchDexData, 60000);
+
+     function openLightbox(src) {
+      const lightbox = document.getElementById("lightbox");
+      document.getElementById("lightbox-img").src = src;
+      lightbox.style.display = "flex";
+    }
+    function closeLightbox() {
+      document.getElementById("lightbox").style.display = "none";
+    }
   </script>
 
   <script src="script/script.js"></script>
