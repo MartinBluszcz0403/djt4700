@@ -138,59 +138,250 @@
 <body>
  
 
-  <header>
-    <div class="logo-placeholder" style="text-align: center; margin-bottom: 1rem;">
-      <img src="img/logo2.png" alt="Logo" style="height: 120px;" />
-    </div>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Discover DJT4700 — the Trump-backed meme coin turning heads with explosive growth, political narrative, and global reach. Join 2,000+ holders fueling the next big crypto wave." />
+  <meta name="keywords" content="Trump meme coin, MAGA crypto, political crypto, SPX meta, fast growing crypto, DJT4700" />
+  <title>DJT4700 | Trump-Whale Powered Meme Coin</title>
+  <link rel="preload" as="video" href="vid/promo2.mp4" type="video/mp4">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
 
-    <div class="header-text">
-      <h1>DJT4700: The Community-Driven Crypto with Trump Whale Power 🌐🚀</h1>
-      <p>
-In the ever-evolving world of cryptocurrency, DJT4700 is turning heads. A community-driven project that recently got taken over by a Trump-affiliated “whale” investor, DJT4700 has set itself apart as a unique fusion of narratives, political alignment, and powerful growth metrics. 🚀</p>
-    <div class="buttons">
-      <a href="https://t.me/DJT4700ETHOfficial" class="telegram">Join Telegram</a>
-      <a href="https://x.com/djt4700official" class="twitter">Follow on X</a>
-    </div>  
-    <button class="cta-button" id="copy-btn" data-tooltip="Copied!">Buy $DJT4700</button>
-      <div style="margin-top: 1rem; font-family: monospace; font-size: 0.9rem;">
-        <strong>Contract:</strong> 0x470005727a680b19EfBaEb9fe070F844Bf8B0694 <button class="copy-button" onclick="copyAddress()">📋 Copy</button>
-      </div>
-    </div>
+    .logo-placeholder img {
+      animation: spin 10s linear infinite;
+    }
 
-    <!-- Responsive full-screen image container -->
-    <div class="hero-image" style="
-      position: relative;
-      width: 100%;
-      height: 100vh;
+    .hero-image img {
+      opacity: 0.85;
+    }
+
+    .tokenomics-section {
+      background-color: #0d0d1b;
+      color: #fff;
+      padding: 2rem 1rem;
+      font-family: 'Space Grotesk', sans-serif;
+      text-align: center;
+    }
+
+    .tokenomics-section h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .tokenomics-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    .token-box {
+      background-color: #1a1a2e;
+      border-radius: 12px;
+      padding: 1.5rem;
+      flex: 1 1 300px;
+      max-width: 350px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      text-align: left;
+    }
+
+    .token-box h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .token-box ul {
+      list-style: none;
+      padding: 0;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .token-box i {
+      color: #184e96;
+      margin-right: 0.5rem;
+    }
+
+    .gif-box .gif-placeholder {
+      margin-top: 1rem;
+      background-color: #222;
+      border: 2px dashed #444;
+      border-radius: 8px;
       overflow: hidden;
       display: flex;
-      justify-content: flex-end;
-      align-items: flex-end;
-      padding: 1rem;
-      box-sizing: border-box;
-    ">
-      <img 
-        src="img/trump.png" 
-        alt="Hero Visual" 
-        style="
-          max-width: 100%;
-          max-height: 100%;
-          height: auto;
-          width: auto;
-          object-fit: contain;
-          opacity: 0.35;
-        "
-      />
-    </div>
-  </header>
+      justify-content: center;
+      align-items: center;
+      height: 200px;
+    }
 
-  <!-- Full-width video section -->
-  <section class="video-section" style="width: 100%; padding: 0; margin: 0;">
-    <video autoplay loop muted playsinline style="width: 100%; height: auto; display: block;">
-      <source src="vid/promo4.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
-  </section>
+    .gif-box img {
+      max-width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      padding: 2rem;
+    }
+
+    .gallery img {
+      width: 150px;
+      height: auto;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: transform 0.2s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .lightbox {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.9);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 80vh;
+    }
+
+    @media (max-width: 480px) {
+  .logo-placeholder img {
+    max-height: 70px;
+    margin-top: 0.5rem;
+  }
+}
+  </style>
+</head>
+<body>
+
+<header style="position: relative; height: 100vh; overflow: hidden; font-family: 'Space Grotesk', sans-serif; color: white;">
+  <!-- Background Video -->
+  <video autoplay loop muted playsinline style="
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+  ">
+    <source src="vid/promo3.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Dark Overlay -->
+  <div style="
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 2;
+  "></div>
+
+  <!-- Header Content -->
+  <div style="
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    padding: 2rem 1rem;
+    box-sizing: border-box;
+  ">
+    <!-- Logo -->
+    <div class="logo-placeholder" style="margin-bottom: 1rem;">
+<img src="img/logo2.png" alt="Logo" style="
+  max-height: 100px;
+  max-width: 90vw;
+  width: auto;
+  height: auto;
+  margin-top: 10rem;
+  animation: spin 10s linear infinite;
+" />    </div>
+
+    <!-- Header Text -->
+    <div class="header-text" style="max-width: 800px; width: 100%;">
+      <h1 style="font-size: 2rem; margin-bottom: 1rem;">DJT4700: The Community-Driven Crypto with Trump Whale Power 🌐🚀</h1>
+      <p style="font-size: 1rem; margin-bottom: 1.5rem;">
+        In the ever-evolving world of cryptocurrency, DJT4700 is turning heads. A community-driven project that recently got taken over by a Trump-affiliated “whale” investor, DJT4700 has set itself apart as a unique fusion of narratives, political alignment, and powerful growth metrics. 🚀
+      </p>
+
+      <!-- Buttons -->
+      <div class="buttons" style="margin-bottom: 1rem; display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
+        <a href="https://t.me/DJT4700ETHOfficial" style="
+          background-color: #229ED9;
+          color: white;
+          padding: 0.6rem 1.2rem;
+          border-radius: 5px;
+          text-decoration: none;
+          font-weight: bold;
+        ">Join Telegram</a>
+        <a href="https://x.com/djt4700official" style="
+          background-color: #1DA1F2;
+          color: white;
+          padding: 0.6rem 1.2rem;
+          border-radius: 5px;
+          text-decoration: none;
+          font-weight: bold;
+        ">Follow on X</a>
+      </div>
+
+      <!-- CTA Button -->
+      <button id="copy-btn" data-tooltip="Copied!" style="
+        padding: 0.6rem 1.5rem;
+        background-color: #ff6600;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+      ">Buy $DJT4700</button>
+
+      <!-- Contract Info -->
+      <div style="margin-top: 1rem; font-size: 0.9rem; word-break: break-all;">
+        <strong>Contract:</strong> 0x470005727a680b19EfBaEb9fe070F844Bf8B0694
+        <button onclick="copyAddress()" style="
+          background: none;
+          border: none;
+          color: white;
+          margin-left: 8px;
+          font-size: 1.1rem;
+          cursor: pointer;
+        ">📋 Copy</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+
+ 
 
    <section class="tokenomics-section">
     <h2><i class="fas fa-chart-pie"></i> Tokenomics Overview</h2>
@@ -231,18 +422,7 @@ In the ever-evolving world of cryptocurrency, DJT4700 is turning heads. A commun
           <li><strong>Rugpull Risk:</strong> No</li>
         </ul>
       </div>
-      <div class="token-box gif-box">
-        
-        <div class="gif-placeholder">
-              <!-- Full-width video section -->
-  <section class="video-section" style="width: 100%; padding: 0; margin: 0;">
-    <video autoplay loop muted playsinline style="width: 100%; height: auto; display: block;">
-      <source src="vid/promo3.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
-  </section>
-        </div>
-      </div>
+      
     </div>
   </section>
 
