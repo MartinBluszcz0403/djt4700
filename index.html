@@ -276,7 +276,7 @@
 </head>
 <body>
 
-<header style="position: relative; height: 100vh; overflow: hidden; font-family: 'Space Grotesk', sans-serif; color: white;">
+<header style="position: relative; height: 190vh; overflow: hidden; font-family: 'Space Grotesk', sans-serif; color: white;">
   <!-- Background Video -->
   <video autoplay loop muted playsinline style="
     position: absolute;
@@ -331,52 +331,87 @@
         In the ever-evolving world of cryptocurrency, DJT4700 is turning heads. A community-driven project that recently got taken over by a Trump-affiliated “whale” investor, DJT4700 has set itself apart as a unique fusion of narratives, political alignment, and powerful growth metrics. 🚀
       </p>
 
-      <!-- Buttons -->
-      <div class="buttons" style="margin-bottom: 1rem; display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
-        <a href="https://t.me/DJT4700ETHOfficial" style="
-          background-color: #229ED9;
-          color: white;
-          padding: 0.6rem 1.2rem;
-          border-radius: 5px;
-          text-decoration: none;
-          font-weight: bold;
-        ">Join Telegram</a>
-        <a href="https://x.com/djt4700official" style="
-          background-color: #1DA1F2;
-          color: white;
-          padding: 0.6rem 1.2rem;
-          border-radius: 5px;
-          text-decoration: none;
-          font-weight: bold;
-        ">Follow on X</a>
-      </div>
+     <!-- Main Content Container -->
+<div class="buttons-container" style="
+  position: relative;
+  z-index: 2;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+">
 
-      <!-- CTA Button -->
-      <button id="copy-btn" data-tooltip="Copied!" style="
-        padding: 0.6rem 1.5rem;
-        background-color: #ff6600;
-        border: none;
-        border-radius: 5px;
-        color: white;
-        font-size: 1rem;
-        font-weight: bold;
-        cursor: pointer;
-      ">Buy $DJT4700</button>
-
-      <!-- Contract Info -->
-      <div style="margin-top: 1rem; font-size: 0.9rem; word-break: break-all;">
-        <strong>Contract:</strong> 0x470005727a680b19EfBaEb9fe070F844Bf8B0694
-        <button onclick="copyAddress()" style="
-          background: none;
-          border: none;
-          color: white;
-          margin-left: 8px;
-          font-size: 1.1rem;
-          cursor: pointer;
-        ">📋 Copy</button>
-      </div>
-    </div>
+  <!-- Buttons -->
+  <div class="buttons" style="
+    margin-bottom: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    width: 100%;
+  ">
+    <a href="https://t.me/DJT4700ETHOfficial" style="
+      background-color: #229ED9;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      flex: 1 1 45%;
+      text-align: center;
+    ">Join Telegram</a>
+    <a href="https://x.com/djt4700official" style="
+      background-color: #1DA1F2;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      flex: 1 1 45%;
+      text-align: center;
+    ">Follow on X</a>
   </div>
+
+  <!-- CTA Button -->
+  <button id="copy-btn" data-tooltip="Copied!" style="
+    padding: 0.6rem 1.5rem;
+    background-color: #ff6600;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    max-width: 300px;
+  ">Buy $DJT4700</button>
+
+  <!-- Contract Info -->
+  <div style="
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    word-break: break-word;
+    color: white;
+  ">
+    <strong>Contract:</strong><br>
+    0x470005727a680b19EfBaEb9fe070F844Bf8B0694
+    <br>
+    <button onclick="copyAddress()" style="
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.1rem;
+      cursor: pointer;
+      margin-top: 2rem;
+    " data-tooltip="Text Copied">📋 Copy</button>
+  </div>
+
+</div>
+
 </header>
 
 
