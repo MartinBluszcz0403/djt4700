@@ -40,7 +40,7 @@
     align-items: center;
     height: 100vh;
     padding: 6rem 1.5rem 3rem;
-    background: radial-gradient(circle at top left, #294aa5, #0e0e1a);
+    background: radial-gradient(circle at top left, #294aa5, #d80000);
   }
   .header-text {
     flex: 1;
