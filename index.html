@@ -133,26 +133,8 @@
       max-width: 90%;
       max-height: 80vh;
     }
-  </style>
-</head>
-<body>
- 
 
-  <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Discover DJT4700 — the Trump-backed meme coin turning heads with explosive growth, political narrative, and global reach. Join 2,000+ holders fueling the next big crypto wave." />
-  <meta name="keywords" content="Trump meme coin, MAGA crypto, political crypto, SPX meta, fast growing crypto, DJT4700" />
-  <title>DJT4700 | Trump-Whale Powered Meme Coin</title>
-  <link rel="preload" as="video" href="vid/promo2.mp4" type="video/mp4">
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles/styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <style>
-    @keyframes spin {
+     @keyframes spin {
       from { transform: rotate(0deg); }
       to { transform: rotate(360deg); }
     }
@@ -310,8 +292,7 @@
   </style>
 </head>
 <body>
-
-<header style="position: relative; height: 175vh; overflow: hidden; font-family: 'Space Grotesk', sans-serif; color: white;">
+  <header style="position: relative; height: 175vh; overflow: hidden; font-family: 'Space Grotesk', sans-serif; color: white;">
   <!-- Background Video -->
   <video autoplay loop muted playsinline style="
     position: absolute;
@@ -422,7 +403,7 @@
   </a>
 </div>
   <!-- CTA Button -->
-  <button id="copy-btn" data-tooltip="Copied!" style="
+  <button class="cta-button" data-tooltip="Copied!" style="
     padding: 0.6rem 1.5rem;
     background-color: #ff0000;
     border: none;
@@ -588,8 +569,17 @@
   <footer>
     <p>Not Financial Advice. Do Your Own Research. <br /> &copy; 2025 DJT4700. Powered by Community.</p>
   </footer>
-
   <script>
+
+  document.addEventListener('DOMContentLoaded', () => {
+  // CTA Button Handler
+  const ctaButton = document.querySelector('.cta-button');
+  if (ctaButton) {
+    ctaButton.addEventListener('click', () => {
+      // Optionally replace with actual redirect logic
+      window.location.href = 'https://app.uniswap.org/explore/tokens/ethereum/0x470005727a680b19EfBaEb9fe070F844Bf8B0694';
+    });
+}});
     let chart;
 
     async function fetchDexData() {
@@ -662,16 +652,29 @@
     }
 
     function copyAddress() {
-    const address = "0x470005727a680b19EfBaEb9fe070F844Bf8B0694";
-    navigator.clipboard.writeText(address).then(() => {
-      const tooltip = document.getElementById('tooltip-text');
-      tooltip.style.visibility = 'visible';
-      tooltip.style.opacity = '1';
+    const address = "0x470005727a680b19EfBaEb9fe070F844Bf8B0694"; // Contract address
+    const tooltip = document.getElementById("tooltip-text");
+
+    // Create a temporary textarea to copy the address
+    const textarea = document.createElement("textarea");
+    textarea.value = address;
+    document.body.appendChild(textarea);
+    textarea.select();
+    textarea.setSelectionRange(0, 99999); // For mobile devices
+
+    try {
+      document.execCommand("copy");
+      tooltip.style.visibility = "visible";
+      tooltip.style.opacity = "1";
       setTimeout(() => {
-        tooltip.style.opacity = '0';
-        tooltip.style.visibility = 'hidden';
+        tooltip.style.visibility = "hidden";
+        tooltip.style.opacity = "0";
       }, 1500);
-    });
+    } catch (err) {
+      alert("Failed to copy address. Please copy manually.");
+    }
+
+    document.body.removeChild(textarea);
   }
 
     fetchDexData();
@@ -685,8 +688,32 @@
     function closeLightbox() {
       document.getElementById("lightbox").style.display = "none";
     }
+
+
+   function copyAddress() {
+    const address = "0x470005727a680b19EfBaEb9fe070F844Bf8B0694";
+    const tooltip = document.getElementById("tooltip-text");
+
+    // Copy the address to the clipboard
+    navigator.clipboard.writeText(address).then(() => {
+      // Show the tooltip
+      tooltip.style.visibility = "visible";
+      tooltip.style.opacity = 1;
+
+      // Hide tooltip after 2 seconds
+      setTimeout(() => {
+        tooltip.style.visibility = "hidden";
+        tooltip.style.opacity = 0;
+      }, 2000);
+    }).catch(err => {
+      console.error("Failed to copy address: ", err);
+    });
+  }
+
+
+   
   </script>
 
-  <script src="script/script.js"></script>
+
 </body>
 </html>
