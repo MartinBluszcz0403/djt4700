@@ -11,6 +11,300 @@
   <link rel="stylesheet" href="styles/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+  font-family: 'Space Grotesk', sans-serif;
+  margin: 0;
+  background-color: #0d0d1b;
+  color: white;
+}
+
+.hero-header {
+  position: relative;
+  height: 175vh;
+  overflow: hidden;
+}
+
+.hero-video {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+  text-align: center;
+  height: 100%;
+}
+
+.logo-placeholder img {
+  animation: spin 10s linear infinite;
+  max-height: 100px;
+  margin-top: 10rem;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.header-text h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.header-text p {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.buttons-container {
+  max-width: 600px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.buttons a {
+  padding: 0.6rem 0.9rem;
+  border-radius: 5px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 45%;
+}
+
+.telegram { background-color: #229ED9; }
+.twitter { background-color: #1DA1F2; }
+
+.cta-button {
+  background-color: #ff0000;
+  color: white;
+  padding: 0.6rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  max-width: 300px;
+}
+
+.contract-info {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+#copy-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.4rem;
+  cursor: pointer;
+  margin-top: 2rem;
+  position: relative;
+}
+
+#tooltip-text {
+  visibility: hidden;
+  width: 80px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 10;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -40px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 0.8rem;
+}
+
+.narrative-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.narrative-section h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.narrative-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  background-color: #1a1a33;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+.narrative-block h3 {
+  grid-column: span 2;
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.narrative-block p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #ddd;
+}
+
+@media (max-width: 768px) {
+  .narrative-block {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+    padding: 1.5rem;
+  }
+
+  .narrative-block h3 {
+    grid-column: span 1;
+    font-size: 1.4rem;
+    text-align: left;
+  }
+
+  .narrative-block p {
+    font-size: 1rem;
+  }
+}
+
+.tokenomics-section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.tokenomics-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+.tokenomics-section {
+  margin-bottom: 80px; /* adjust spacing as needed */
+}
+
+.token-box {
+  background-color: #1a1a2e;
+  border-radius: 12px;
+  padding: 1.5rem;
+  flex: 1 1 300px;
+  max-width: 350px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  text-align: left;
+}
+
+.token-box h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+}
+
+.token-box ul {
+  list-style: none;
+  padding: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.token-box i {
+  color: #184e96;
+  margin-right: 0.5rem;
+}
+
+.video-section video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.gallery-title {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  padding: 2rem;
+}
+
+.gallery img {
+  width: 150px;
+  border-radius: 8px;
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+.lightbox {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.9);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 80vh;
+}
+
+footer {
+  background-color: #0e0e1a;
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.9rem;
+  color: #bbb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+  </style>
 </head>
 <body>
   <header class="hero-header">
@@ -127,12 +421,8 @@
   <h2 class="gallery-title">Meme gallery 🔥</h2>
   <section class="gallery">
     <img src="img/meme1.jpg" alt="Meme 1" onclick="openLightbox(this.src)" />
-    <img src="img/meme10.jpg" alt="Meme 2" onclick="openLightbox(this.src)" />
-    <img src="img/meme2.jpg" alt="Meme 3" onclick="openLightbox(this.src)" />
-    <img src="img/meme16.jpg" alt="Meme 3" onclick="openLightbox(this.src)" />
-    <img src="img/djt.jpg" alt="Meme 4" onclick="openLightbox(this.src)" />
-    <img src="img/meme11.jpg" alt="Meme 5" onclick="openLightbox(this.src)" />
-    <img src="img/meme6.jpg" alt="Meme 6" onclick="openLightbox(this.src)" />
+    <img src="img/banner.jpg" alt="Meme 2" onclick="openLightbox(this.src)" />
+    <img src="img/meme3.jpg" alt="Meme 3" onclick="openLightbox(this.src)" />
   </section>
 
   <div class="lightbox" id="lightbox" onclick="closeLightbox()">
@@ -147,95 +437,113 @@
   <footer>
     <p>Not Financial Advice. Do Your Own Research. <br /> &copy; 2025 DJT4700. Powered by Community.</p>
   </footer>
-  <script>
-  let chart;
 
-  async function fetchDexData() {
-    try {
-      const res = await fetch('https://api.dexscreener.com/latest/dex/pairs/ethereum/0x1b78bd60eb71ff95bf3f735ec6eb196066600f41');
-      const data = await res.json();
+   <script>
+    let chart;
 
-      // Check if valid data is returned
-      if (!data || !data.pairs || !Array.isArray(data.pairs) || data.pairs.length === 0) {
-        console.error('Invalid or missing data from DexScreener');
-        return;
-      }
+    async function fetchDexData() {
+      try {
+        const res = await fetch('https://api.dexscreener.com/latest/dex/pairs/ethereum/0x1b78bd60eb71ff95bf3f735ec6eb196066600f41');
+        const data = await res.json();
+        const pair = data.pair;
 
-      const pair = data.pairs[0];
-      const price = parseFloat(pair.priceUsd);
+        if (!pair || !pair.priceUsd) {
+          document.getElementById('priceChart').replaceWith('Market data unavailable.');
+          return;
+        }
 
-      if (isNaN(price)) {
-        console.error('Invalid price data');
-        return;
-      }
+        const now = new Date();
+        const labels = Array.from({ length: 12 }, (_, i) => {
+          const t = new Date(now.getTime() - (11 - i) * 5 * 60000);
+          return `${t.getHours()}:${t.getMinutes().toString().padStart(2, '0')}`;
+        });
 
-      // Generate 12 time labels spaced 5 minutes apart
-      const now = new Date();
-      const labels = Array.from({ length: 12 }, (_, i) => {
-        const t = new Date(now.getTime() - (11 - i) * 5 * 60000);
-        return `${t.getHours()}:${t.getMinutes().toString().padStart(2, '0')}`;
-      });
+        const prices = Array.from({ length: 12 }, () =>
+          (parseFloat(pair.priceUsd) * (1 + (Math.random() - 0.5) * 0.01)).toFixed(6)
+        );
 
-      // Simulate slight price fluctuations for demo (can replace with real price history if available)
-      const prices = Array.from({ length: 12 }, () =>
-        (price * (1 + (Math.random() - 0.5) * 0.01)).toFixed(6)
-      );
+        const ctx = document.getElementById('priceChart').getContext('2d');
 
-      const ctx = document.getElementById('priceChart').getContext('2d');
-
-      if (chart) {
-        chart.data.labels = labels;
-        chart.data.datasets[0].data = prices;
-        chart.update();
-      } else {
-        chart = new Chart(ctx, {
-          type: 'line',
-          data: {
-            labels,
-            datasets: [{
-              label: '$DJT4700 Price (USD)',
-              data: prices,
-              borderColor: '#00ff99',
-              backgroundColor: 'rgba(0, 255, 153, 0.1)',
-              tension: 0.4,
-              fill: true,
-              pointRadius: 2
-            }]
-          },
-          options: {
-            responsive: true,
-            scales: {
-              y: {
-                ticks: {
-                  callback: value => `$${value}`
-                }
-              }
+        if (chart) {
+          chart.data.labels = labels;
+          chart.data.datasets[0].data = prices;
+          chart.update();
+        } else {
+          chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+              labels: labels,
+              datasets: [{
+                label: '$DJT4700 Price (USD)',
+                data: prices,
+                borderColor: '#00ff99',
+                backgroundColor: 'rgba(0, 255, 153, 0.1)',
+                tension: 0.3,
+                fill: true,
+                pointRadius: 2,
+              }]
             },
-            plugins: {
-              legend: { display: false },
-              tooltip: {
-                callbacks: {
-                  label: ctx => `$${ctx.parsed.y}`
+            options: {
+              responsive: true,
+              scales: {
+                x: { display: true },
+                y: {
+                  beginAtZero: false,
+                  ticks: {
+                    callback: value => `$${value}`
+                  }
+                }
+              },
+              plugins: {
+                legend: { display: false },
+                tooltip: {
+                  callbacks: {
+                    label: ctx => `$${ctx.parsed.y}`
+                  }
                 }
               }
             }
-          }
-        });
+          });
+        }
+      } catch (err) {
+        console.error("Error fetching DEX data:", err);
       }
-
-    } catch (error) {
-      console.error("Error fetching or processing DEX data:", error);
     }
-  }
 
-  // Run on load
-  document.addEventListener('DOMContentLoaded', () => {
-    fetchDexData();
-    setInterval(fetchDexData, 60000); // Optional: refresh every 60 sec
+    function copyAddress() {
+  const address = "0x470005727a680b19EfBaEb9fe070F844Bf8B0694";
+  navigator.clipboard.writeText(address).then(() => {
+    const tooltip = document.getElementById("tooltip-text");
+    tooltip.style.visibility = "visible";
+    tooltip.style.opacity = "1";
+    setTimeout(() => {
+      tooltip.style.visibility = "hidden";
+      tooltip.style.opacity = "0";
+    }, 1500);
   });
-</script>
+}
 
-   
+function openLightbox(src) {
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  lightboxImg.src = src;
+  lightbox.style.display = "flex";
+}
+
+function closeLightbox() {
+  const lightbox = document.getElementById("lightbox");
+  lightbox.style.display = "none";
+}
+
+// CTA Button Handler
+  const ctaButton = document.querySelector('.cta-button');
+  if (ctaButton) {
+    ctaButton.addEventListener('click', () => {
+      // Optionally replace with actual redirect logic
+      window.location.href = 'https://app.uniswap.org/explore/tokens/ethereum/0x470005727a680b19EfBaEb9fe070F844Bf8B0694';
+    });
+}
+  </script>
 
   <script src="script/script.js"></script>
 
