@@ -11,456 +11,43 @@
   <link rel="stylesheet" href="styles/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <style>
-    @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
-    .logo-placeholder img {
-      animation: spin 5s linear infinite;
-    }
-     @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
-    .logo-placeholder img {
-      animation: spin 10s linear infinite;
-    }
-
-    .hero-image img {
-      opacity: 0.85;
-    }
-
-    .tokenomics-section {
-      background-color: #0d0d1b;
-      color: #fff;
-      padding: 2rem 1rem;
-      font-family: 'Space Grotesk', sans-serif;
-      text-align: center;
-    }
-
-    .tokenomics-section h2 {
-      font-size: 2rem;
-      margin-bottom: 2rem;
-    }
-
-    .tokenomics-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1.5rem;
-    }
-
-    .token-box {
-      background-color: #1a1a2e;
-      border-radius: 12px;
-      padding: 1.5rem;
-      flex: 1 1 300px;
-      max-width: 350px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
-      text-align: left;
-    }
-
-    .token-box h3 {
-      font-size: 1.2rem;
-      margin-bottom: 0.8rem;
-    }
-
-    .token-box ul {
-      list-style: none;
-      padding: 0;
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
-
-    .token-box i {
-      color: #184e96;
-      margin-right: 0.5rem;
-    }
-
-    .gif-box .gif-placeholder {
-      margin-top: 1rem;
-      background-color: #222;
-      border: 2px dashed #444;
-      border-radius: 8px;
-      overflow: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 200px;
-    }
-
-    .gif-box img {
-      max-width: 100%;
-      height: auto;
-      object-fit: contain;
-    }
-
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-      padding: 2rem;
-    }
-
-    .gallery img {
-      width: 150px;
-      height: auto;
-      cursor: pointer;
-      border-radius: 8px;
-      transition: transform 0.2s;
-    }
-
-    .gallery img:hover {
-      transform: scale(1.05);
-    }
-
-    .lightbox {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.9);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-    }
-
-    .lightbox img {
-      max-width: 90%;
-      max-height: 80vh;
-    }
-
-     @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
-    .logo-placeholder img {
-      animation: spin 10s linear infinite;
-    }
-
-    .hero-image img {
-      opacity: 0.85;
-    }
-
-    .tokenomics-section {
-      background-color: #0d0d1b;
-      color: #fff;
-      padding: 2rem 1rem;
-      font-family: 'Space Grotesk', sans-serif;
-      text-align: center;
-    }
-
-    .tokenomics-section h2 {
-      font-size: 2rem;
-      margin-bottom: 2rem;
-    }
-
-    .tokenomics-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1.5rem;
-    }
-
-    .token-box {
-      background-color: #1a1a2e;
-      border-radius: 12px;
-      padding: 1.5rem;
-      flex: 1 1 300px;
-      max-width: 350px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
-      text-align: left;
-    }
-
-    .token-box h3 {
-      font-size: 1.2rem;
-      margin-bottom: 0.8rem;
-    }
-
-    .token-box ul {
-      list-style: none;
-      padding: 0;
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
-
-    .token-box i {
-      color: #184e96;
-      margin-right: 0.5rem;
-    }
-
-    .gif-box .gif-placeholder {
-      margin-top: 1rem;
-      background-color: #222;
-      border: 2px dashed #444;
-      border-radius: 8px;
-      overflow: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 200px;
-    }
-
-    .gif-box img {
-      max-width: 100%;
-      height: auto;
-      object-fit: contain;
-    }
-
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-      padding: 2rem;
-    }
-
-    .gallery img {
-      width: 150px;
-      height: auto;
-      cursor: pointer;
-      border-radius: 8px;
-      transition: transform 0.2s;
-    }
-
-    .gallery img:hover {
-      transform: scale(1.05);
-    }
-
-    .lightbox {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.9);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-    }
-
-    .lightbox img {
-      max-width: 90%;
-      max-height: 80vh;
-    }
-
-    @media (max-width: 480px) {
-  .logo-placeholder img {
-    max-height: 70px;
-    margin-top: 0.5rem;
-  }
-}
-
-.narrative-block {
-  background-color: #1a1a2e;
-  margin: 2rem auto;
-  padding: 1.5rem;
-  border-radius: 12px;
-  max-width: 350px;
-  text-align: left;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Match token-box shadow */
-}
-
-.narrative-section h2 {
-  font-size: 2rem; /* Match tokenomics-section h2 */
-  margin-bottom: 2rem;
-  color: #ffffff;
-}
-
-.narrative-section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-  color: #ffffff;
-  text-align: center;
-  width: 100%;
-  display: block;
-}
-
-.narrative-block h3 {
-  font-size: 1.2rem; /* Match token-box h3 */
-  color: #ffffff;
-}
-
-.narrative-block h3 i {
-  color: #ffffff;
-  margin-right: 0.5rem;
-}
-  </style>
 </head>
 <body>
-  <header style="position: relative; height: 175vh; overflow: hidden; font-family: 'Space Grotesk', sans-serif; color: white;">
-  <!-- Background Video -->
-  <video autoplay loop muted playsinline style="
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 1;
-  ">
-    <source src="vid/promo3.mp4" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
+  <header class="hero-header">
+    <video autoplay loop muted playsinline class="hero-video">
+      <source src="vid/promo3.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <div class="video-overlay"></div>
+    <div class="hero-content">
+      <div class="logo-placeholder">
+        <img src="img/logo2.png" alt="Logo" />
+      </div>
+      <div class="header-text">
+        <h1>DJT4700: The Community-Driven Crypto with Trump Whale Power 🌐🚀</h1>
+        <p>
+          In the ever-evolving world of cryptocurrency, DJT4700 is turning heads...
+        </p>
+        <div class="buttons-container">
+          <div class="buttons">
+            <a href="https://t.me/DJT4700ETHOfficial" class="telegram"><i class="fab fa-telegram-plane"></i></a>
+            <a href="https://x.com/djt4700official" class="twitter"><i class="fab fa-x-twitter"></i></a>
+          </div>
+          <button class="cta-button" data-tooltip="Copied!">Buy $DJT4700</button>
+          <div class="contract-info">
+            <strong>Contract:</strong><br>
+            0x470005727a680b19EfBaEb9fe070F844Bf8B0694<br>
+            <button id="copy-btn" onclick="copyAddress()">
+              <i class="fas fa-clipboard"></i>
+              <span id="tooltip-text">Text copied</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
 
-  <!-- Dark Overlay -->
-  <div style="
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    z-index: 2;
-  "></div>
-
-  <!-- Header Content -->
-  <div style="
-    position: relative;
-    z-index: 3;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    height: 100%;
-    padding: 2rem 1rem;
-    box-sizing: border-box;
-  ">
-    <!-- Logo -->
-    <div class="logo-placeholder" style="margin-bottom: 1rem;">
-<img src="img/logo2.png" alt="Logo" style="
-  max-height: 100px;
-  max-width: 90vw;
-  width: auto;
-  height: auto;
-  margin-top: 10rem;
-  animation: spin 10s linear infinite;
-" />    </div>
-
-    <!-- Header Text -->
-    <div class="header-text" style="max-width: 800px; width: 100%;">
-      <h1 style="font-size: 2rem; margin-bottom: 1rem;">DJT4700: The Community-Driven Crypto with Trump Whale Power 🌐🚀</h1>
-      <p style="font-size: 1rem; margin-bottom: 1.5rem;">
-        In the ever-evolving world of cryptocurrency, DJT4700 is turning heads. A community-driven project that recently got taken over by a Trump-affiliated “whale” investor, DJT4700 has set itself apart as a unique fusion of narratives, political alignment, and powerful growth metrics. 🚀
-      </p>
-
-     <!-- Main Content Container -->
-<div class="buttons-container" style="
-  position: relative;
-  z-index: 2;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-">
-
-  <div class="buttons" style="
-  margin-bottom: 1rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-  width: 100%;
-">
-  <a href="https://t.me/DJT4700ETHOfficial" style="
-    background-color: #229ED9;
-    color: white;
-    padding: 0.6rem 0.9rem;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    flex: 1 1 45%;
-    text-align: center;
-    font-size: 1.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  " aria-label="Join Telegram" title="Join Telegram">
-    <i class="fab fa-telegram-plane"></i>
-  </a>
-  <a href="https://x.com/djt4700official" style="
-    background-color: #1DA1F2;
-    color: white;
-    padding: 0.6rem 0.9rem;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    flex: 1 1 45%;
-    text-align: center;
-    font-size: 1.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  " aria-label="Follow on X" title="Follow on X">
-    <i class="fab fa-x-twitter"></i>
-  </a>
-</div>
-  <!-- CTA Button -->
-  <button class="cta-button" data-tooltip="Copied!" style="
-    padding: 0.6rem 1.5rem;
-    background-color: #ff0000;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    width: 100%;
-    max-width: 300px;
-  ">Buy $DJT4700</button>
-
-  <!-- Contract Info -->
-  <div style="
-    margin-top: 1rem;
-    font-size: 0.9rem;
-    word-break: break-word;
-    color: white;
-  ">
-    <strong>Contract:</strong><br>
-    0x470005727a680b19EfBaEb9fe070F844Bf8B0694
-    <br>
-   <button id="copy-btn" onclick="copyAddress()" style="
-  background: none;
-  border: none;
-  color: white;
-  font-size: 1.4rem;
-  cursor: pointer;
-  margin-top: 2rem;
-  position: relative;
-" aria-label="Copy contract address" title="Copy contract address">
-  <i class="fas fa-clipboard"></i>
-  <span id="tooltip-text" style="
-    visibility: hidden;
-    width: 80px;
-    background-color: black;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 4px 0;
-    position: absolute;
-    z-index: 10;
-    bottom: 125%;
-    left: 50%;
-    margin-left: -40px;
-    opacity: 0;
-    transition: opacity 0.3s;
-    font-size: 0.8rem;
-  ">Text copied</span>
-</button>
-  </div>
-
-</div>
-
-</header>
-
-<section class="narrative-section">
+  <section class="narrative-section">
   <h2>💬 The DJT4700 Narrative</h2>
 
   <div class="narrative-block">
@@ -469,35 +56,33 @@
       DJT4700 is more than just a meme coin — it’s a <strong>movement tied to the return of power</strong>. With the 2024 U.S. election on the horizon and Donald Trump leading the polls, DJT4700 aligns itself with the <strong>MAGA resurgence</strong> and the political momentum driving global attention.
     </p>
     <p>
-      Powered by a <strong>Trump-affiliated crypto whale</strong>, the project was taken over and rebranded to reflect its high-octane, MAGA-infused DeFi mission. It gives the community a way to <strong>meme the campaign, support the movement, and profit from politics</strong> — all while remaining decentralized and community-driven.
+      Backed by a <strong>Trump-affiliated crypto whale</strong>, the project was rebranded with a high-octane, MAGA-infused DeFi mission — empowering users to <strong>meme the campaign, support the movement, and profit from politics</strong>.
     </p>
   </div>
 
   <div class="narrative-block">
     <h3>📈 2. The “SPX Meta” Narrative</h3>
     <p>
-      DJT4700 is deeply connected to the rise of the <strong>SPX Meta</strong> — a narrative that saw politically-aligned memecoins like SPX reach an <strong>$800 million+ market cap</strong>. DJT4700 captured that momentum, quickly becoming a <strong>key player in the post-SPX wave</strong> and a serious contender for the next breakout.
+      DJT4700 rides the wave of the <strong>SPX Meta</strong> — a trend where political meme coins like SPX reached over an <strong>$800M market cap</strong>. This momentum positioned DJT4700 as a <strong>post-SPX contender</strong> with breakout potential.
     </p>
     <p>
-      The crypto market has spoken: <strong>politics is profit</strong>. DJT4700 doesn’t follow trends — it <strong>defines the next one</strong>.
+      In today’s market, <strong>politics = profit</strong>. DJT4700 doesn’t just follow narratives — it <strong>leads them</strong>.
     </p>
   </div>
 
   <div class="narrative-block">
-    <h3>💹 3. The “DJT Stocks Soaring to $7 Billion” Narrative</h3>
+    <h3>💹 3. The “DJT Stocks to $7B” Narrative</h3>
     <p>
-      Trump’s official media company stock — <strong>$DJT</strong> — recently skyrocketed past a <strong>$7 billion valuation</strong> on Wall Street. That’s more than sentiment — it’s validation from TradFi. DJT4700 captures that same energy and brings it into Ethereum’s DeFi ecosystem.
+      The $DJT stock — Trump’s official media company — surged past a <strong>$7B valuation</strong>, showing real-world validation. DJT4700 channels that excitement into the Ethereum DeFi world.
     </p>
     <p>
-      It’s not just a meme anymore — it’s a movement <strong>validated by both stock markets and crypto markets</strong>, and DJT4700 sits right at the center of it.
+      This isn’t just a meme — it’s a movement <strong>confirmed by Wall Street and DeFi</strong>, with DJT4700 at the center.
     </p>
   </div>
 </section>
 
 
- 
-
-   <section class="tokenomics-section">
+  <section class="tokenomics-section">
     <h2><i class="fas fa-chart-pie"></i> Tokenomics Overview</h2>
     <div class="tokenomics-grid">
       <div class="token-box">
@@ -529,34 +114,25 @@
           <li><strong>Sell Tax:</strong> 0%</li>
         </ul>
       </div>
-      
-      
     </div>
   </section>
 
-    <!-- Full-width video section -->
-  <section class="video-section" style="width: 100%; padding: 0; margin: 0;">
-    <video autoplay loop muted playsinline style="width: 100%; height: auto; display: block;">
+  <section class="video-section">
+    <video autoplay loop muted playsinline>
       <source src="vid/promo2.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
   </section>
 
-   <h2 style="text-align:center; font-size:2rem;">Meme gallery 🔥</h2>
+  <h2 class="gallery-title">Meme gallery 🔥</h2>
   <section class="gallery">
-    
     <img src="img/meme1.jpg" alt="Meme 1" onclick="openLightbox(this.src)" />
     <img src="img/banner.jpg" alt="Meme 2" onclick="openLightbox(this.src)" />
     <img src="img/meme3.jpg" alt="Meme 3" onclick="openLightbox(this.src)" />
-    <img src="img/djt.jpg" alt="Meme 4" onclick="openLightbox(this.src)" />
-    <img src="img/meme2.jpg" alt="Meme 5" onclick="openLightbox(this.src)" />
-    <img src="img/meme6.jpg" alt="Meme 6" onclick="openLightbox(this.src)" />
-    <img src="img/meme7.jpg" alt="Meme 7" onclick="openLightbox(this.src)" />
-    <img src="img/meme8.jpg" alt="Meme 8" onclick="openLightbox(this.src)" />
   </section>
 
   <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-    <img id="lightbox-img" src="" alt="Expanded meme" />
+    <img id="lightbox-img" src="" alt="Large View" />
   </div>
 
   <section class="section" id="dex-info" style="background-color: #141427; text-align: center;">
@@ -564,156 +140,101 @@
     <canvas id="priceChart" width="400" height="200" style="max-width: 100%; margin: 0 auto;"></canvas>
   </section>
 
-  
-
   <footer>
     <p>Not Financial Advice. Do Your Own Research. <br /> &copy; 2025 DJT4700. Powered by Community.</p>
   </footer>
   <script>
+  let chart;
 
-  document.addEventListener('DOMContentLoaded', () => {
-  // CTA Button Handler
-  const ctaButton = document.querySelector('.cta-button');
-  if (ctaButton) {
-    ctaButton.addEventListener('click', () => {
-      // Optionally replace with actual redirect logic
-      window.location.href = 'https://app.uniswap.org/explore/tokens/ethereum/0x470005727a680b19EfBaEb9fe070F844Bf8B0694';
-    });
-}});
-    let chart;
+  async function fetchDexData() {
+    try {
+      const res = await fetch('https://api.dexscreener.com/latest/dex/pairs/ethereum/0x1b78bd60eb71ff95bf3f735ec6eb196066600f41');
+      const data = await res.json();
 
-    async function fetchDexData() {
-      try {
-        const res = await fetch('https://api.dexscreener.com/latest/dex/pairs/ethereum/0x1b78bd60eb71ff95bf3f735ec6eb196066600f41');
-        const data = await res.json();
-        const pair = data.pair;
+      // Check if valid data is returned
+      if (!data || !data.pairs || !Array.isArray(data.pairs) || data.pairs.length === 0) {
+        console.error('Invalid or missing data from DexScreener');
+        return;
+      }
 
-        if (!pair || !pair.priceUsd) {
-          document.getElementById('priceChart').replaceWith('Market data unavailable.');
-          return;
-        }
+      const pair = data.pairs[0];
+      const price = parseFloat(pair.priceUsd);
 
-        const now = new Date();
-        const labels = Array.from({ length: 12 }, (_, i) => {
-          const t = new Date(now.getTime() - (11 - i) * 5 * 60000);
-          return `${t.getHours()}:${t.getMinutes().toString().padStart(2, '0')}`;
-        });
+      if (isNaN(price)) {
+        console.error('Invalid price data');
+        return;
+      }
 
-        const prices = Array.from({ length: 12 }, () =>
-          (parseFloat(pair.priceUsd) * (1 + (Math.random() - 0.5) * 0.01)).toFixed(6)
-        );
+      // Generate 12 time labels spaced 5 minutes apart
+      const now = new Date();
+      const labels = Array.from({ length: 12 }, (_, i) => {
+        const t = new Date(now.getTime() - (11 - i) * 5 * 60000);
+        return `${t.getHours()}:${t.getMinutes().toString().padStart(2, '0')}`;
+      });
 
-        const ctx = document.getElementById('priceChart').getContext('2d');
+      // Simulate slight price fluctuations for demo (can replace with real price history if available)
+      const prices = Array.from({ length: 12 }, () =>
+        (price * (1 + (Math.random() - 0.5) * 0.01)).toFixed(6)
+      );
 
-        if (chart) {
-          chart.data.labels = labels;
-          chart.data.datasets[0].data = prices;
-          chart.update();
-        } else {
-          chart = new Chart(ctx, {
-            type: 'line',
-            data: {
-              labels: labels,
-              datasets: [{
-                label: '$DJT4700 Price (USD)',
-                data: prices,
-                borderColor: '#00ff99',
-                backgroundColor: 'rgba(0, 255, 153, 0.1)',
-                tension: 0.3,
-                fill: true,
-                pointRadius: 2,
-              }]
-            },
-            options: {
-              responsive: true,
-              scales: {
-                x: { display: true },
-                y: {
-                  beginAtZero: false,
-                  ticks: {
-                    callback: value => `$${value}`
-                  }
+      const ctx = document.getElementById('priceChart').getContext('2d');
+
+      if (chart) {
+        chart.data.labels = labels;
+        chart.data.datasets[0].data = prices;
+        chart.update();
+      } else {
+        chart = new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels,
+            datasets: [{
+              label: '$DJT4700 Price (USD)',
+              data: prices,
+              borderColor: '#00ff99',
+              backgroundColor: 'rgba(0, 255, 153, 0.1)',
+              tension: 0.4,
+              fill: true,
+              pointRadius: 2
+            }]
+          },
+          options: {
+            responsive: true,
+            scales: {
+              y: {
+                ticks: {
+                  callback: value => `$${value}`
                 }
-              },
-              plugins: {
-                legend: { display: false },
-                tooltip: {
-                  callbacks: {
-                    label: ctx => `$${ctx.parsed.y}`
-                  }
+              }
+            },
+            plugins: {
+              legend: { display: false },
+              tooltip: {
+                callbacks: {
+                  label: ctx => `$${ctx.parsed.y}`
                 }
               }
             }
-          });
-        }
-      } catch (err) {
-        console.error("Error fetching DEX data:", err);
+          }
+        });
       }
+
+    } catch (error) {
+      console.error("Error fetching or processing DEX data:", error);
     }
-
-    function copyAddress() {
-    const address = "0x470005727a680b19EfBaEb9fe070F844Bf8B0694"; // Contract address
-    const tooltip = document.getElementById("tooltip-text");
-
-    // Create a temporary textarea to copy the address
-    const textarea = document.createElement("textarea");
-    textarea.value = address;
-    document.body.appendChild(textarea);
-    textarea.select();
-    textarea.setSelectionRange(0, 99999); // For mobile devices
-
-    try {
-      document.execCommand("copy");
-      tooltip.style.visibility = "visible";
-      tooltip.style.opacity = "1";
-      setTimeout(() => {
-        tooltip.style.visibility = "hidden";
-        tooltip.style.opacity = "0";
-      }, 1500);
-    } catch (err) {
-      alert("Failed to copy address. Please copy manually.");
-    }
-
-    document.body.removeChild(textarea);
   }
 
+  // Run on load
+  document.addEventListener('DOMContentLoaded', () => {
     fetchDexData();
-    setInterval(fetchDexData, 60000);
-
-     function openLightbox(src) {
-      const lightbox = document.getElementById("lightbox");
-      document.getElementById("lightbox-img").src = src;
-      lightbox.style.display = "flex";
-    }
-    function closeLightbox() {
-      document.getElementById("lightbox").style.display = "none";
-    }
-
-
-   function copyAddress() {
-    const address = "0x470005727a680b19EfBaEb9fe070F844Bf8B0694";
-    const tooltip = document.getElementById("tooltip-text");
-
-    // Copy the address to the clipboard
-    navigator.clipboard.writeText(address).then(() => {
-      // Show the tooltip
-      tooltip.style.visibility = "visible";
-      tooltip.style.opacity = 1;
-
-      // Hide tooltip after 2 seconds
-      setTimeout(() => {
-        tooltip.style.visibility = "hidden";
-        tooltip.style.opacity = 0;
-      }, 2000);
-    }).catch(err => {
-      console.error("Failed to copy address: ", err);
-    });
-  }
-
+    setInterval(fetchDexData, 60000); // Optional: refresh every 60 sec
+  });
+</script>
 
    
-  </script>
 
+  <script src="script/script.js"></script>
 
+ 
 </body>
 </html>
